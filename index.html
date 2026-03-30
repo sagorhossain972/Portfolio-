@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaled Md Saifullah — Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Elegant Dark Theme Palette */
+            --bg-main: #050505;
+            --bg-surface: #0f0f0f;
+            --bg-card: #141414;
+            
+            --text-main: #eaeaea;
+            --text-muted: #8a8a8a;
+            --text-dark: #555555;
+            
+            --accent-gold: #c5a059;
+            --accent-gold-light: #e8c886;
+            --accent-gold-dim: rgba(197, 160, 89, 0.15);
+            
+            --border-subtle: #222222;
+            --border-hover: #3a3a3a;
+            
+            --nav-height: 70px;
+            
+            /* Typography */
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-main);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── TYPOGRAPHY & UTILITIES ── */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            color: var(--text-main);
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-gold);
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+        }
+
+        .gold-text {
+            color: var(--accent-gold);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .section-line {
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, var(--border-subtle), transparent);
+        }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+        }
+        
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ── HERO SECTION ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: var(--nav-height);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff, #a0a0a0);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-contact span, .hero-contact a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ── HERO IMAGE LAYOUT ── */
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image-wrapper {
+            flex-shrink: 0;
+            width: 380px;
+            height: 380px;
+            position: relative;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, transparent 60%);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold-dim);
+            z-index: -1;
+            transform: scale(1.05);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            border: 4px solid var(--bg-surface);
+            background-color: var(--bg-card);
+        }
+
+        .award-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent-gold-dim);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 12px 24px;
+            border-radius: 4px;
+            margin-top: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-gold-light);
+        }
+
+        /* ── SUMMARY SECTION ── */
+        .summary-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        
+        .summary-text strong {
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        /* ── TIMELINE (EXPERIENCE & EDUCATION) ── */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            position: relative;
+        }
+
+        .timeline-meta {
+            text-align: right;
+            position: relative;
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .timeline-content {
+            background: var(--bg-surface);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(197, 160, 89, 0.4);
+            transform: translateX(5px);
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .bullets {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+        }
+
+        .achievement-box {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 2px solid var(--accent-gold);
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .sub-role {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        .sub-role h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── SKILLS GRID ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            padding: 25px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .skill-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-card:hover .tag {
+            border-color: var(--border-hover);
+            color: var(--text-main);
+        }
+
+        /* ── PROJECTS GRID ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            padding: 30px;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .project-org {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        /* ── PUBLICATIONS & HONORS ── */
+        .list-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .list-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .list-icon {
+            font-family: var(--font-mono);
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            min-width: 30px;
+        }
+
+        .list-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        
+        .list-content p em {
+            color: var(--text-main);
+            font-style: normal;
+        }
+
+        .badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 2px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* ── ANIMATIONS ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero-layout {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 40px;
+                padding-top: 40px;
+            }
+            .hero-contact {
+                justify-content: center;
+            }
+            .hero-image-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+            .hero-desc {
+                margin: 0 auto 40px auto;
+            }
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .timeline-meta {
+                text-align: left;
+            }
+            .list-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none; /* Mobile menu could be added here, keeping it minimal for now */
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 70px 0;
+            }
+            .footer-content {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">KMS<span>.</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+        <div class="reveal hero-layout">
+            <div class="hero-text">
+                <span class="hero-subtitle">Business Analytics Professional</span>
+                <h1 class="hero-title">Khaled Md Saifullah</h1>
+                <p class="hero-desc">
+                    Transforming complex datasets into actionable insights and strategic business growth. Bridging the gap between technical analytics and enterprise strategy.
+                </p>
+                
+                <div class="hero-contact">
+                    <span>📍 Oulu, Finland</span>
+                    <span>📞 +358 417 406 762</span>
+                    <a href="mailto:sagorhossain972@gmail.com">✉️ sagorhossain972@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/khaled-md-saifullah-a16613159/" target="_blank">↗ LinkedIn</a>
+                    <a href="https://github.com/sagorhossain972" target="_blank">↗ GitHub</a>
+                </div>
+
+                <div class="award-banner">
+                    <span>🏆</span>
+                    <div>
+                        <strong>ERPsim Finnish National Champion 2025</strong><br>
+                        1st Runner-Up at ERPsim EMEA 2025
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <img src="khaled.jpeg" alt="Khaled Md Saifullah Profile Photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- SUMMARY SECTION -->
+    <section id="about" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Overview</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="reveal">
+            <p class="summary-text">
+                Results-driven Business Analytics professional with a distinguished MSc (GPA: 4.34/5.0, Distinction) combining deep expertise across data analytics, business modelling, enterprise reporting, and <strong>SAP S/4HANA ERP</strong>. Skilled at transforming complex datasets into actionable insights using <strong>Power BI, SQL, Python,</strong> and statistical modelling — and translating those insights into strategic business decisions and growth opportunities. 
+                <br><br>
+                Nationally recognised as <strong>ERPsim Finnish National Champion 2025</strong>, demonstrating applied command of end-to-end ERP workflows across Manufacturing, Procurement, and Supply Chain. Proven track record in building business models, designing digital infrastructure, and securing $367K+ in funding through data-driven proposals across health, agriculture, and public sector domains. Eager to contribute to data-informed decision-making, enterprise analytics, and AI-powered innovation.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Experience</h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="timeline">
+            <!-- Mindrift -->
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <div class="timeline-date">Apr 2025 – Present</div>
+                    <div class="timeline-company">Mindrift.ai<br>Remote (Austria)</div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Data Annotator | Prompt Engineering</h3>
+                    <ul class="bullets">
+                        <li>Train and fine-tune AI models using multimodal data (text, image, video) to enhance performance and accuracy.</li>
+                        <li>Design complex reasoning prompts to identify and address LLM failure modes.</li>
+                        <li>Develop ground truth datasets and acceptance criteria for AI model evaluation.</li>
+                        <li>Successfully delivered 2 major projects with high-quality annotated training data.</li>
+                    </ul>
+                    <div class="achievement-box">
+                        <strong class="gold-text">Key Achievement:</strong> Created specialised dataset for testing complex reasoning capabilities in LLMs, establishing benchmarks for model performance validation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- A2i -->
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <div class="timeline-date">Jul 2022 – Sep 2024</div>
+                    <div class="timeline-company">Aspire to Innovate (A2i)<br>Bangladesh</div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Project Associate — Health Data</h3>
+                    
+                    <div class="sub-role">
+                        <h4>Digital Health Transformation</h4>
+                        <ul class="bullets">
+                            <li>Led end-to-end enterprise system architecture for Bangladesh's Shared Health Record (SHR) platform, ensuring cross-system interoperability.</li>
+                            <li>Secured <strong>$367,849 USD</strong> in funding through strategic concept notes for Data Impact Project with Vital Strategies.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sub-role">
+                        <h4>Digital Agriculture Innovation</h4>
+                        <ul class="bullets">
+                            <li>Created standardised data framework for the agriculture sector.</li>
+                            <li>Collaborated with 15 agriculture departments and 20 private startups to align national data policies.</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-role">
+                        <h4>AI Policy Development</h4>
+                        <ul class="bullets">
+                            <li>Conducted comprehensive research on AI policies from 21 countries for Bangladesh's National AI Policy 2024.</li>
+                            <li>Synthesised complex international laws into actionable policy recommendations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRAC IT -->
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <div class="timeline-date">Dec 2021 – May 2022</div>
+                    <div class="timeline-company">BRAC IT<br>Bangladesh</div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Business Development Executive</h3>
+                    <ul class="bullets">
+                        <li>Generated qualified leads through systematic market research and trend analysis.</li>
+                        <li>Developed customer personas and defined KPIs for business growth.</li>
+                        <li>Initiated 12+ strategic collaborations with insurance companies.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Staff Asia -->
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <div class="timeline-date">May 2021 – Sep 2021</div>
+                    <div class="timeline-company">Staff Asia<br>Bangladesh</div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Business Analyst</h3>
+                    <ul class="bullets">
+                        <li>Conducted market research and competitor analysis to identify product-market fit for an e-learning platform.</li>
+                        <li>Analysed customer search trends to optimise product positioning, identifying 10 high-potential products for the Indian market.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card reveal">
+                <h3 class="project-title">SAP Finland Market & Competitor Analytics</h3>
+                <div class="project-org">SAP Finland & University of Oulu</div>
+                <p class="project-desc">Conducted customer sentiment analysis and competitive positioning study using PESTE framework, delivering strategic recommendations directly to SAP stakeholders — simulating end-to-end consulting workflow.</p>
+            </div>
+            
+            <div class="project-card reveal">
+                <h3 class="project-title">Project Hydra: Domain-Specific Prompt Engineering</h3>
+                <div class="project-org">Mindrift.ai</div>
+                <p class="project-desc">Developing specialised prompts and rubric items for domain-specific AI applications, hardening prompt development to improve model reliability and consistency.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3 class="project-title">Smart Production Downtime Validation</h3>
+                <div class="project-org">University of Oulu</div>
+                <p class="project-desc">Developed a T-SQL solution to validate machine downtime in a simulated SAP-aligned production environment, replicating tasks typical of SAP implementation and post-go-live support.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3 class="project-title">Tiura Uistin Customer Behaviour Analysis</h3>
+                <div class="project-org">Tiura Uistin & University of Oulu</div>
+                <p class="project-desc">Applied UTAUT2 behavioural theory to identify value elements influencing customer willingness to pay, providing actionable insights for marketing strategy optimisation.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3 class="project-title">Project Sonic: AI Data Annotation</h3>
+                <div class="project-org">Telus</div>
+                <p class="project-desc">Annotating visual data (images/videos) to train multimodal Generative AI systems, producing high-volume, accurately labelled training data for GenAI applications.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3 class="project-title">Inclusive Digital Transformation Stack</h3>
+                <div class="project-org">A2i, World Bank & CDPI</div>
+                <p class="project-desc">Designed architecture for Bangladesh's Digital Public Infrastructure (DPI) across health, agriculture, and education sectors, applying scenario planning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <span class="skill-label">SAP & ERP Platforms</span>
+                <div class="skill-tags">
+                    <span class="tag">SAP S/4HANA</span>
+                    <span class="tag">ERP Processes</span>
+                    <span class="tag">Procurement</span>
+                    <span class="tag">Manufacturing</span>
+                    <span class="tag">Supply Chain</span>
+                </div>
+            </div>
+            
+            <div class="skill-card reveal">
+                <span class="skill-label">Reporting & Analytics</span>
+                <div class="skill-tags">
+                    <span class="tag">Power BI (Advanced)</span>
+                    <span class="tag">Tableau</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Business Intelligence</span>
+                    <span class="tag">Data Warehouse</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <span class="skill-label">Programming & Analysis</span>
+                <div class="skill-tags">
+                    <span class="tag">Python (Pandas, NumPy)</span>
+                    <span class="tag">R / RStudio</span>
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">T-SQL</span>
+                    <span class="tag">Monte Carlo</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <span class="skill-label">AI & Machine Learning</span>
+                <div class="skill-tags">
+                    <span class="tag">Prompt Engineering</span>
+                    <span class="tag">Model Fine-tuning</span>
+                    <span class="tag">Multimodal AI</span>
+                    <span class="tag">LLM Evaluation</span>
+                </div>
+            </div>
+            
+            <div class="skill-card reveal">
+                <span class="skill-label">Business & Consulting</span>
+                <div class="skill-tags">
+                    <span class="tag">Excel (Advanced/VBA)</span>
+                    <span class="tag">MS Project</span>
+                    <span class="tag">Stakeholder Management</span>
+                    <span class="tag">Process Mapping</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <span class="skill-label">Research & Stats</span>
+                <div class="skill-tags">
+                    <span class="tag">SPSS</span>
+                    <span class="tag">STATA</span>
+                    <span class="tag">EFA / CFA / SEM</span>
+                    <span class="tag">Granger Causality</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & PUBLICATIONS -->
+    <section class="section container">
+        <div class="list-grid">
+            
+            <!-- Education -->
+            <div class="reveal">
+                <div class="section-header" style="margin-bottom: 30px;">
+                    <h2 class="section-title" style="font-size: 2rem;">Education</h2>
+                </div>
+                
+                <div class="timeline" style="gap: 30px;">
+                    <div style="background: var(--bg-surface); padding: 25px; border-left: 2px solid var(--accent-gold); border-radius: 0 4px 4px 0;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 5px;">MSc in Business Analytics</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">University of Oulu, Finland (2024 – 2025)</p>
+                        <p class="mono" style="color: var(--accent-gold); font-size: 0.85rem; margin-bottom: 10px;">GPA: 4.34 / 5.0 — Distinction</p>
+                        <p style="font-size: 0.85rem; color: var(--text-dark);">Enterprise Process Planning, Business Intelligence, Market Analysis, Digitalisation & Innovation</p>
+                    </div>
+
+                    <div style="background: var(--bg-surface); padding: 25px; border-left: 2px solid var(--border-subtle); border-radius: 0 4px 4px 0;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 5px;">BSc in Economics</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">North South University, Bangladesh (2016 – 2021)</p>
+                        <p class="mono" style="color: var(--text-muted); font-size: 0.85rem;">GPA: 3.13 / 4.0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publications -->
+            <div class="reveal">
+                <div class="section-header" style="margin-bottom: 30px;">
+                    <h2 class="section-title" style="font-size: 2rem;">Publications</h2>
+                </div>
+
+                <div class="list-item">
+                    <div class="list-icon">01</div>
+                    <div class="list-content">
+                        <p><em>"A Data-Driven Approach to Sustainable Agriculture"</em> <span class="badge">1st Author</span></p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">02</div>
+                    <div class="list-content">
+                        <p><em>"Bridging Digital Divides for Inclusive Healthcare in Bangladesh"</em> <span class="badge">1st Author</span></p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">03</div>
+                    <div class="list-content">
+                        <p><em>"Determinants of Citizen Adoption of the EUDI Wallet for Health Services in Finland"</em> <span class="badge">1st Author</span></p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">04</div>
+                    <div class="list-content">
+                        <p><em>"Causality and Dependence of COVID-19 Variables from Our World in Data"</em> <span class="badge" style="border-color: var(--border-subtle); color: var(--text-muted);">2nd Author</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <div class="footer-content">
+            <div>&copy; 2026 Khaled Md Saifullah. All rights reserved.</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="mailto:sagorhossain972@gmail.com">sagorhossain972@gmail.com</a>
+                <a href="https://www.linkedin.com/in/khaled-md-saifullah-a16613159/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/sagorhossain972" target="_blank">GitHub</a>
+            </div>
+            <div>Designed in Oulu, Finland</div>
+        </div>
+    </footer>
+
+    <!-- INTERSECTION OBSERVER SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
