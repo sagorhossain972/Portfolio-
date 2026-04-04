@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khaled Md Saifullah — Portfolio</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -497,6 +496,10 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
         }
 
         .project-org {
@@ -513,46 +516,65 @@
         }
 
         /* ── PUBLICATIONS & HONORS ── */
-        .list-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        .publications-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
         .list-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 20px;
+            background: var(--bg-surface);
+            padding: 25px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .list-item:hover {
+            border-color: rgba(197, 160, 89, 0.4);
         }
 
         .list-icon {
             font-family: var(--font-mono);
             color: var(--accent-gold);
-            font-size: 1.2rem;
-            min-width: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            min-width: 40px;
+        }
+
+        .list-content h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .list-content p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
-        .list-content p em {
-            color: var(--text-main);
-            font-style: normal;
+        .list-content .venue {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
         }
 
         .badge {
             display: inline-block;
             font-family: var(--font-mono);
             font-size: 0.7rem;
-            padding: 2px 8px;
+            padding: 3px 8px;
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
             border-radius: 2px;
             margin-left: 8px;
             vertical-align: middle;
+            white-space: nowrap;
         }
 
         /* ── FOOTER ── */
@@ -610,9 +632,6 @@
             .timeline-meta {
                 text-align: left;
             }
-            .list-grid {
-                grid-template-columns: 1fr;
-            }
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -623,7 +642,7 @@
 
         @media (max-width: 600px) {
             .nav-links {
-                display: none; /* Mobile menu could be added here, keeping it minimal for now */
+                display: none;
             }
             .section-title {
                 font-size: 2rem;
@@ -631,21 +650,33 @@
             .section {
                 padding: 70px 0;
             }
+            .list-item {
+                flex-direction: column;
+                gap: 10px;
+            }
             .footer-content {
                 flex-direction: column;
                 justify-content: center;
+            }
+            .project-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .badge {
+                margin-left: 0;
+                margin-top: 8px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <nav>
         <div class="container nav-content">
             <a href="#" class="logo">KMS<span>.</span></a>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#education">Education</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
@@ -653,14 +684,13 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero container">
         <div class="reveal hero-layout">
             <div class="hero-text">
-                <span class="hero-subtitle">Business Analytics Professional</span>
+                <span class="hero-subtitle">Business Analytics Professional & Applied Researcher</span>
                 <h1 class="hero-title">Khaled Md Saifullah</h1>
                 <p class="hero-desc">
-                    Transforming complex datasets into actionable insights and strategic business growth. Bridging the gap between technical analytics and enterprise strategy.
+                    Transforming complex datasets into actionable insights through rigorous academic research and enterprise analytics. Bridging the gap between advanced statistical modelling and strategic business growth.
                 </p>
                 
                 <div class="hero-contact">
@@ -686,7 +716,6 @@
         </div>
     </section>
 
-    <!-- SUMMARY SECTION -->
     <section id="about" class="section container">
         <div class="section-header reveal">
             <h2 class="section-title">Overview</h2>
@@ -694,14 +723,54 @@
         </div>
         <div class="reveal">
             <p class="summary-text">
-                Results-driven Business Analytics professional with a distinguished MSc (GPA: 4.34/5.0, Distinction) combining deep expertise across data analytics, business modelling, enterprise reporting, and <strong>SAP S/4HANA ERP</strong>. Skilled at transforming complex datasets into actionable insights using <strong>Power BI, SQL, Python,</strong> and statistical modelling — and translating those insights into strategic business decisions and growth opportunities. 
+                Results-driven Business Analytics professional and researcher with a distinguished MSc (GPA: 4.34/5.0, Distinction). I specialize in bridging the gap between rigorous academic research and enterprise strategy, transforming complex datasets into actionable insights. 
                 <br><br>
-                Nationally recognised as <strong>ERPsim Finnish National Champion 2025</strong>, demonstrating applied command of end-to-end ERP workflows across Manufacturing, Procurement, and Supply Chain. Proven track record in building business models, designing digital infrastructure, and securing $367K+ in funding through data-driven proposals across health, agriculture, and public sector domains. Eager to contribute to data-informed decision-making, enterprise analytics, and AI-powered innovation.
+                Combining deep expertise in data analytics, econometric modelling, enterprise reporting, and <strong>SAP S/4HANA ERP</strong>, I leverage tools like <strong>Power BI, SQL, Python,</strong> and advanced statistical methodologies to drive strategic business decisions. Nationally recognized as the <strong>ERPsim Finnish National Champion 2025</strong>, I possess a proven track record of designing digital infrastructure, optimizing enterprise workflows, and securing $367K+ in research and project funding through data-driven grant proposals. Eager to contribute to data-informed decision-making, applied R&D, and AI-powered innovation.
             </p>
         </div>
     </section>
 
-    <!-- EXPERIENCE SECTION -->
+    <section id="education" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Education & Research Focus</h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <div class="timeline-date">2024 – 2025</div>
+                    <div class="timeline-company">University of Oulu<br>Finland</div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">MSc in Business Analytics</h3>
+                    <p class="timeline-subtitle" style="color: var(--accent-gold);">GPA: 4.34 / 5.0 — Distinction</p>
+                    <ul class="bullets">
+                        <li><strong>Coursework:</strong> Enterprise Process Planning, Business Intelligence, Market Analysis, Digitalisation & Innovation.</li>
+                        <li><strong>Master's Thesis:</strong> <em>Modeling The Determinants of Privacy Concern and Their Impact on Financial Data Sharing Behaviour: A Study of Finnish Residents.</em></li>
+                        <li>Applied a quantitative research design drawing on survey data from 362 Finnish residents.</li>
+                        <li>Employed Confirmatory Factor Analysis (CFA) and Structural Equation Modelling (SEM) to evaluate the measurement and structural components of the framework.</li>
+                        <li>Utilized SPSS, Excel, Python, and R Studio for comprehensive statistical analysis.</li>
+                    </ul>
+                    <div class="achievement-box">
+                        <strong class="gold-text">Key Findings:</strong> Discovered that perceived benefits emerge as the strongest positive predictor for data sharing. Demonstrated that privacy concern and trust do not directly affect willingness to share financial data.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-meta">
+                    <div class="timeline-date">2016 – 2021</div>
+                    <div class="timeline-company">North South University<br>Bangladesh</div>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">BSc in Economics</h3>
+                    <p class="timeline-subtitle" style="color: var(--text-muted); margin-bottom: 0;">GPA: 3.13 / 4.0</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="experience" class="section container">
         <div class="section-header reveal">
             <h2 class="section-title">Experience</h2>
@@ -709,7 +778,6 @@
         </div>
         
         <div class="timeline">
-            <!-- Mindrift -->
             <div class="timeline-item reveal">
                 <div class="timeline-meta">
                     <div class="timeline-date">Apr 2025 – Present</div>
@@ -729,7 +797,6 @@
                 </div>
             </div>
 
-            <!-- A2i -->
             <div class="timeline-item reveal">
                 <div class="timeline-meta">
                     <div class="timeline-date">Jul 2022 – Sep 2024</div>
@@ -738,11 +805,17 @@
                 <div class="timeline-content">
                     <h3 class="timeline-title">Project Associate — Health Data</h3>
                     
+                    <div class="sub-role" style="border-top: none; padding-top: 0; margin-top: 15px;">
+                        <h4>Grant Writing & R&D Funding</h4>
+                        <ul class="bullets">
+                            <li>Authored strategic concept notes and secured <strong>$367,849 USD</strong> in funding for a Data Impact Project with Vital Strategies.</li>
+                        </ul>
+                    </div>
+
                     <div class="sub-role">
                         <h4>Digital Health Transformation</h4>
                         <ul class="bullets">
                             <li>Led end-to-end enterprise system architecture for Bangladesh's Shared Health Record (SHR) platform, ensuring cross-system interoperability.</li>
-                            <li>Secured <strong>$367,849 USD</strong> in funding through strategic concept notes for Data Impact Project with Vital Strategies.</li>
                         </ul>
                     </div>
                     
@@ -764,7 +837,6 @@
                 </div>
             </div>
 
-            <!-- BRAC IT -->
             <div class="timeline-item reveal">
                 <div class="timeline-meta">
                     <div class="timeline-date">Dec 2021 – May 2022</div>
@@ -775,12 +847,11 @@
                     <ul class="bullets">
                         <li>Generated qualified leads through systematic market research and trend analysis.</li>
                         <li>Developed customer personas and defined KPIs for business growth.</li>
-                        <li>Initiated 12+ strategic collaborations with insurance companies.</li>
+                        <li>Initiated 12+ strategic collaborations with insurance companies to expand the B2B pipeline.</li>
                     </ul>
                 </div>
             </div>
             
-            <!-- Staff Asia -->
             <div class="timeline-item reveal">
                 <div class="timeline-meta">
                     <div class="timeline-date">May 2021 – Sep 2021</div>
@@ -797,7 +868,6 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects" class="section container">
         <div class="section-header reveal">
             <h2 class="section-title">Key Projects</h2>
@@ -806,47 +876,46 @@
 
         <div class="projects-grid">
             <div class="project-card reveal">
-                <h3 class="project-title">SAP Finland Market & Competitor Analytics</h3>
+                <h3 class="project-title">SAP Finland Market Analytics <span class="badge">Industry Consulting</span></h3>
                 <div class="project-org">SAP Finland & University of Oulu</div>
                 <p class="project-desc">Conducted customer sentiment analysis and competitive positioning study using PESTE framework, delivering strategic recommendations directly to SAP stakeholders — simulating end-to-end consulting workflow.</p>
             </div>
             
             <div class="project-card reveal">
-                <h3 class="project-title">Project Hydra: Domain-Specific Prompt Engineering</h3>
+                <h3 class="project-title">Project Hydra: Prompt Eng. <span class="badge">AI / R&D</span></h3>
                 <div class="project-org">Mindrift.ai</div>
-                <p class="project-desc">Developing specialised prompts and rubric items for domain-specific AI applications, hardening prompt development to improve model reliability and consistency.</p>
+                <p class="project-desc">Developing specialised prompts and rubric items for domain-specific AI applications, hardening prompt development to improve model reliability, consistency, and alignment.</p>
             </div>
 
             <div class="project-card reveal">
-                <h3 class="project-title">Smart Production Downtime Validation</h3>
+                <h3 class="project-title">Smart Production Validation <span class="badge">Enterprise Analytics</span></h3>
                 <div class="project-org">University of Oulu</div>
                 <p class="project-desc">Developed a T-SQL solution to validate machine downtime in a simulated SAP-aligned production environment, replicating tasks typical of SAP implementation and post-go-live support.</p>
             </div>
 
             <div class="project-card reveal">
-                <h3 class="project-title">Tiura Uistin Customer Behaviour Analysis</h3>
+                <h3 class="project-title">Tiura Uistin Behaviour Analysis <span class="badge">Academic Research</span></h3>
                 <div class="project-org">Tiura Uistin & University of Oulu</div>
-                <p class="project-desc">Applied UTAUT2 behavioural theory to identify value elements influencing customer willingness to pay, providing actionable insights for marketing strategy optimisation.</p>
+                <p class="project-desc">Applied UTAUT2 behavioural theory to identify value elements influencing customer willingness to pay. Bridged academic behavioral models with actionable marketing strategy optimization.</p>
             </div>
 
             <div class="project-card reveal">
-                <h3 class="project-title">Project Sonic: AI Data Annotation</h3>
+                <h3 class="project-title">Project Sonic: AI Data Annotation <span class="badge">AI / R&D</span></h3>
                 <div class="project-org">Telus</div>
                 <p class="project-desc">Annotating visual data (images/videos) to train multimodal Generative AI systems, producing high-volume, accurately labelled training data for GenAI applications.</p>
             </div>
 
             <div class="project-card reveal">
-                <h3 class="project-title">Inclusive Digital Transformation Stack</h3>
+                <h3 class="project-title">Inclusive Digital Stack <span class="badge">Public Sector Strategy</span></h3>
                 <div class="project-org">A2i, World Bank & CDPI</div>
-                <p class="project-desc">Designed architecture for Bangladesh's Digital Public Infrastructure (DPI) across health, agriculture, and education sectors, applying scenario planning.</p>
+                <p class="project-desc">Designed architecture for Bangladesh's Digital Public Infrastructure (DPI) across health, agriculture, and education sectors, utilizing advanced scenario planning methodologies.</p>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
     <section id="skills" class="section container">
         <div class="section-header reveal">
-            <h2 class="section-title">Technical Arsenal</h2>
+            <h2 class="section-title">Technical & Research Arsenal</h2>
             <div class="section-line"></div>
         </div>
 
@@ -869,7 +938,7 @@
                     <span class="tag">Tableau</span>
                     <span class="tag">SQL</span>
                     <span class="tag">Business Intelligence</span>
-                    <span class="tag">Data Warehouse</span>
+                    <span class="tag">Data Warehousing</span>
                 </div>
             </div>
 
@@ -880,7 +949,7 @@
                     <span class="tag">R / RStudio</span>
                     <span class="tag">MATLAB</span>
                     <span class="tag">T-SQL</span>
-                    <span class="tag">Monte Carlo</span>
+                    <span class="tag">Monte Carlo Simulations</span>
                 </div>
             </div>
 
@@ -905,79 +974,71 @@
             </div>
 
             <div class="skill-card reveal">
-                <span class="skill-label">Research & Stats</span>
+                <span class="skill-label">Research Methodologies & Stats</span>
                 <div class="skill-tags">
+                    <span class="tag">Confirmatory Factor Analysis (CFA)</span>
+                    <span class="tag">Structural Equation Modeling (SEM)</span>
+                    <span class="tag">Econometrics</span>
+                    <span class="tag">Grant Writing</span>
+                    <span class="tag">Survey Design</span>
                     <span class="tag">SPSS</span>
                     <span class="tag">STATA</span>
-                    <span class="tag">EFA / CFA / SEM</span>
                     <span class="tag">Granger Causality</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EDUCATION & PUBLICATIONS -->
     <section class="section container">
-        <div class="list-grid">
-            
-            <!-- Education -->
-            <div class="reveal">
-                <div class="section-header" style="margin-bottom: 30px;">
-                    <h2 class="section-title" style="font-size: 2rem;">Education</h2>
-                </div>
-                
-                <div class="timeline" style="gap: 30px;">
-                    <div style="background: var(--bg-surface); padding: 25px; border-left: 2px solid var(--accent-gold); border-radius: 0 4px 4px 0;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 5px;">MSc in Business Analytics</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">University of Oulu, Finland (2024 – 2025)</p>
-                        <p class="mono" style="color: var(--accent-gold); font-size: 0.85rem; margin-bottom: 10px;">GPA: 4.34 / 5.0 — Distinction</p>
-                        <p style="font-size: 0.85rem; color: var(--text-dark);">Enterprise Process Planning, Business Intelligence, Market Analysis, Digitalisation & Innovation</p>
-                    </div>
+        <div class="section-header reveal">
+            <h2 class="section-title">Publications & Academic Works</h2>
+            <div class="section-line"></div>
+        </div>
 
-                    <div style="background: var(--bg-surface); padding: 25px; border-left: 2px solid var(--border-subtle); border-radius: 0 4px 4px 0;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 5px;">BSc in Economics</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">North South University, Bangladesh (2016 – 2021)</p>
-                        <p class="mono" style="color: var(--text-muted); font-size: 0.85rem;">GPA: 3.13 / 4.0</p>
-                    </div>
+        <div class="publications-container">
+            <div class="list-item reveal">
+                <div class="list-icon">01</div>
+                <div class="list-content">
+                    <h3>"Modeling The Determinants of Privacy Concern and Their Impact on Financial Data Sharing Behaviour: A Study of Finnish Residents" <span class="badge">Master's Thesis</span></h3>
+                    <div class="venue">Department of Business Analytics, University of Oulu, 2025</div>
+                    <p>Examined the privacy paradox by applying CFA and SEM to evaluate survey data from 362 residents. The results demonstrate that perceived benefits emerge as the strongest positive predictor, while privacy concern and trust do not directly affect willingness to share financial data.</p>
                 </div>
             </div>
 
-            <!-- Publications -->
-            <div class="reveal">
-                <div class="section-header" style="margin-bottom: 30px;">
-                    <h2 class="section-title" style="font-size: 2rem;">Publications</h2>
-                </div>
-
-                <div class="list-item">
-                    <div class="list-icon">01</div>
-                    <div class="list-content">
-                        <p><em>"A Data-Driven Approach to Sustainable Agriculture"</em> <span class="badge">1st Author</span></p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="list-icon">02</div>
-                    <div class="list-content">
-                        <p><em>"Bridging Digital Divides for Inclusive Healthcare in Bangladesh"</em> <span class="badge">1st Author</span></p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="list-icon">03</div>
-                    <div class="list-content">
-                        <p><em>"Determinants of Citizen Adoption of the EUDI Wallet for Health Services in Finland"</em> <span class="badge">1st Author</span></p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="list-icon">04</div>
-                    <div class="list-content">
-                        <p><em>"Causality and Dependence of COVID-19 Variables from Our World in Data"</em> <span class="badge" style="border-color: var(--border-subtle); color: var(--text-muted);">2nd Author</span></p>
-                    </div>
+            <div class="list-item reveal">
+                <div class="list-icon">02</div>
+                <div class="list-content">
+                    <h3>"A Data-Driven Approach to Sustainable Agriculture" <span class="badge">1st Author</span></h3>
+                    <p>Applied predictive modeling to optimize crop yield forecasting and align national data frameworks.</p>
                 </div>
             </div>
 
+            <div class="list-item reveal">
+                <div class="list-icon">03</div>
+                <div class="list-content">
+                    <h3>"Bridging Digital Divides for Inclusive Healthcare in Bangladesh" <span class="badge">1st Author</span></h3>
+                    <p>Conducted a mixed-methods policy analysis to design an interoperable data framework for rural health systems.</p>
+                </div>
+            </div>
+
+            <div class="list-item reveal">
+                <div class="list-icon">04</div>
+                <div class="list-content">
+                    <h3>"Determinants of Citizen Adoption of the EUDI Wallet for Health Services in Finland" <span class="badge">1st Author</span></h3>
+                    <p>Utilized Structural Equation Modeling (SEM) based on the UTAUT framework to analyze citizen tech adoption barriers.</p>
+                </div>
+            </div>
+
+            <div class="list-item reveal">
+                <div class="list-icon">05</div>
+                <div class="list-content">
+                    <h3>"Causality and Dependence of COVID-19 Variables from Our World in Data" <span class="badge" style="border-color: var(--border-subtle); color: var(--text-muted);">2nd Author</span></h3>
+                    <p>Leveraged Granger Causality and time-series econometrics to evaluate the dependency between mobility restrictions and infection rates.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="container">
         <div class="footer-content">
             <div>&copy; 2026 Khaled Md Saifullah. All rights reserved.</div>
@@ -990,7 +1051,6 @@
         </div>
     </footer>
 
-    <!-- INTERSECTION OBSERVER SCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
