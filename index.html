@@ -150,11 +150,11 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         .nav-links a {
-            font-size: 0.85rem;
+            font-size: 0.80rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-muted);
@@ -231,6 +231,43 @@
             gap: 8px;
         }
 
+        /* ── ENLARGED AWARD BANNER ── */
+        .award-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.15) 0%, rgba(20, 20, 20, 0.8) 100%);
+            border: 2px solid var(--accent-gold);
+            padding: 18px 30px;
+            border-radius: 12px;
+            margin-top: 45px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--accent-gold-light);
+            box-shadow: 0 8px 32px rgba(197, 160, 89, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .award-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(197, 160, 89, 0.35);
+        }
+
+        .award-banner .trophy {
+            font-size: 2.8rem;
+        }
+
+        .award-text {
+            line-height: 1.4;
+        }
+
+        .award-text strong {
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+        }
+
         /* ── HERO IMAGE LAYOUT ── */
         .hero-layout {
             display: flex;
@@ -272,20 +309,6 @@
             border-radius: 50%;
             border: 4px solid var(--bg-surface);
             background-color: var(--bg-card);
-        }
-
-        .award-banner {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--accent-gold-dim);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            padding: 12px 24px;
-            border-radius: 4px;
-            margin-top: 50px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--accent-gold-light);
         }
 
         /* ── SUMMARY SECTION ── */
@@ -543,6 +566,18 @@
             font-weight: bold;
             min-width: 40px;
         }
+        
+        .list-icon.wp {
+            font-size: 1rem; 
+            border: 1px solid var(--accent-gold); 
+            padding: 5px; 
+            border-radius: 4px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 35px; 
+            width: 45px;
+        }
 
         .list-content h3 {
             font-size: 1.1rem;
@@ -679,6 +714,7 @@
                 <a href="#education">Education</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#leadership">Leadership</a>
                 <a href="#skills">Skills</a>
             </div>
         </div>
@@ -702,10 +738,10 @@
                 </div>
 
                 <div class="award-banner">
-                    <span>🏆</span>
-                    <div>
+                    <span class="trophy">🏆</span>
+                    <div class="award-text">
                         <strong>ERPsim Finnish National Champion 2025</strong><br>
-                        1st Runner-Up at ERPsim EMEA 2025
+                        1st Runner-Up EMEA 2025 | 4th Position in World Cup
                     </div>
                 </div>
             </div>
@@ -913,6 +949,39 @@
         </div>
     </section>
 
+    <section id="leadership" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Leadership & Extracurriculars</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card reveal">
+                <h3 class="project-title">Nordic Region Student Ambassador</h3>
+                <div class="project-org">United Nations Development Programme (UNDP)</div>
+                <p class="project-desc">Represented the Nordic region as a student ambassador, advocating for sustainable development goals and engaging in initiatives to drive global impact.</p>
+            </div>
+            
+            <div class="project-card reveal">
+                <h3 class="project-title">Digital Health Project Member</h3>
+                <div class="project-org">Oyster Incubator</div>
+                <p class="project-desc">Currently enrolled in the Oyster Incubator, actively collaborating with a team to develop and launch an innovative digital health startup project.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3 class="project-title">International Student Tutor</h3>
+                <div class="project-org">University of Oulu</div>
+                <p class="project-desc">Mentored and guided incoming international students, facilitating their academic integration and cultural transition into the Finnish university system.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3 class="project-title">Event Volunteer</h3>
+                <div class="project-org">Polar Bear Pitching Competition</div>
+                <p class="project-desc">Volunteered at the globally recognized startup event in Oulu, assisting in event facilitation and ensuring a seamless, structured experience for participants and investors.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="skills" class="section container">
         <div class="section-header reveal">
             <h2 class="section-title">Technical & Research Arsenal</h2>
@@ -958,8 +1027,6 @@
                 <div class="skill-tags">
                     <span class="tag">Prompt Engineering</span>
                     <span class="tag">Model Fine-tuning</span>
-                    <span class="tag">Multimodal AI</span>
-                    <span class="tag">LLM Evaluation</span>
                 </div>
             </div>
             
@@ -1034,6 +1101,29 @@
                 <div class="list-content">
                     <h3>"Causality and Dependence of COVID-19 Variables from Our World in Data" <span class="badge" style="border-color: var(--border-subtle); color: var(--text-muted);">2nd Author</span></h3>
                     <p>Leveraged Granger Causality and time-series econometrics to evaluate the dependency between mobility restrictions and infection rates.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header reveal" style="margin-top: 60px;">
+            <h2 class="section-title" style="font-size: 2rem;">Working Papers</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="publications-container">
+            <div class="list-item reveal">
+                <div class="list-icon wp">WP</div>
+                <div class="list-content">
+                    <h3>"Exploring Gender Differences in the Determinants of Privacy Concerns and Their Impact on Financial Data Sharing Behavior Among Finnish Residents"</h3>
+                    <p>Currently in progress. Investigating the moderating role of gender in privacy calculus and digital financial data sharing behaviors.</p>
+                </div>
+            </div>
+
+            <div class="list-item reveal">
+                <div class="list-icon wp">WP</div>
+                <div class="list-content">
+                    <h3>"Modeling the Determinants of Privacy Concern and Their Impact on Financial Data Sharing Behavior Among Finnish Residents"</h3>
+                    <p>Manuscript in preparation based on the comprehensive Master's thesis findings, utilizing CFA and SEM methodologies to analyze perceived benefits and control over data.</p>
                 </div>
             </div>
         </div>
