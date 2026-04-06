@@ -1240,37 +1240,21 @@
                 revealOnScroll.observe(reveal);
             });
         });
-    </script>
-    <!-- Lightbox -->
-<div id="lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center;">
-    <img id="lightbox-img" style="max-width:90vw; max-height:90vh; border-radius:8px; box-shadow:0 0 60px rgba(0,0,0,0.8);">
-</div>
+   </script>
 
-<script>
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const lb = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = this.src;
-            lb.style.display = 'flex';
-        });
-    });
-</script><!-- Lightbox -->
-<div id="lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center;">
-    <img id="lightbox-img" style="max-width:90vw; max-height:90vh; border-radius:8px; box-shadow:0 0 60px rgba(0,0,0,0.8);">
-</div>
+    <div id="lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;">
+        <img id="lightbox-img" style="max-width:90vw;max-height:90vh;border-radius:8px;">
+    </div>
 
-<script>
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const lb = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = this.src;
-            lb.style.display = 'flex';
+    <script>
+        document.querySelectorAll('.gallery-item img').forEach(function(img) {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.getElementById('lightbox-img').src = this.src;
+                document.getElementById('lightbox').style.display = 'flex';
+            });
         });
-    });
 </script>
 </body>
 </html>
