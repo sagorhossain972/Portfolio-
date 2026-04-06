@@ -537,6 +537,41 @@
             font-size: 0.95rem;
             flex-grow: 1;
         }
+        
+        /* ── GALLERY & ACHIEVEMENTS ── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            background: var(--bg-surface);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .gallery-item p {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
 
         /* ── PUBLICATIONS & HONORS ── */
         .publications-container {
@@ -990,6 +1025,35 @@
                 <h3 class="project-title">Event Volunteer</h3>
                 <div class="project-org">Polar Bear Pitching Competition</div>
                 <p class="project-desc">Volunteered at the globally recognized startup event in Oulu, assisting in event facilitation and ensuring a seamless, structured experience for participants and investors.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="achievements" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Gallery & Achievements</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="gallery-grid reveal">
+            <div class="gallery-item">
+                <img src="erpsim-national-winner.jpeg" alt="Winning the ERPsim National Championship">
+                <p><strong>ERPsim National Champion</strong></p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="erpsim-1st-runners-up.jpeg" alt="ERPsim EMEA 1st Runners Up">
+                <p><strong>ERPsim EMEA 1st Runner-Up</strong></p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="polar-bear-pitching.jpg" alt="Pitching at the Polar Bear Competition">
+                <p><strong>Polar Bear Pitching Competition</strong></p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="oyster-incubator-graduation.jpeg" alt="Oyster Incubator Graduation">
+                <p><strong>Oyster Incubator Graduation</strong></p>
             </div>
         </div>
     </section>
